@@ -1,7 +1,11 @@
 # Moving Data
 
-## Required tools
+## Technology overview
+**Amazon AWS** is used to host the workflow orchestrator and run the analysis tools.
 
+**PlanetLab** runs simple RESTful web services which receive an image, write it to the disk and retransmit it again. 
+
+## Required tools
 ### AWS toolkit
 To set up the Amazon AWS toolkit, follow the official guide: [http://aws.amazon.com/developertools/351](http://aws.amazon.com/developertools/351) and configure the toolkit with your AWS account credentials.
 
@@ -26,7 +30,9 @@ Configure the parameters in `script/add_keypair` and then, from the main directo
 Similarly, the command `python script/copy_security_groups.py` can be used to copy all security groups to all AWS regions.
 
 ### PlanetLab
+The PlanetLab setup files live in `eg/planetlab`. 
 
+The file `nodes.txt` contains a list of PlanetLab nodes where the test web service workflows can be executed.
 
 ### PlanetLab setup
 
