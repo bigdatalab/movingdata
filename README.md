@@ -44,11 +44,11 @@ The script file `eg/planetlab/pl.sh` is used to control the web services hosted 
 
 `sh eg/planetlab/pl.sh stop` stops the web service on every node.
 
+## Workflow analysis
+All the commands should be executed from the `deploy` directory.
 
+### Defining Workflows
+A sample workflow, which was used for the IEEE Conference Paper, is included. It loads the workflow specification from plain-text files in the `ieee/inputs` directory. Every line of these files contains a separate node in the workflow. The data source is defined in `deploy/ieee_test_workflow.py`.
 
-### PlanetLab setup
-
-
-### Pre-deployer setup
-
-
+### Generating random workflows
+`python generator.py N` generates a random sequential workflow with N nodes (with replacement). It uses the nodes list in `eg/planetlab/nodes.txt` as a source. The workflow specification will be printed to *STDOUT*.
