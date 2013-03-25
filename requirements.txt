@@ -1,0 +1,17 @@
+Fabric==1.5.0
+PIL==1.1.7
+boto==2.6.0
+distribute==0.6.27
+paramiko==1.9.0
+prettytable==0.6.1
+pycrypto==2.6
+pydot==1.0.28
+pyparsing==1.5.6
+stevedore==0.4
+tornado==2.4
+tweepy==1.12
+twitter==1.9.0
+virtualenv==1.7.2
+virtualenv-clone==0.2.4
+virtualenvwrapper==3.6
+wsgiref==0.1.2

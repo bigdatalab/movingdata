@@ -18,7 +18,7 @@ Install [Python 2.7.3](http://www.python.org), [pip](https://pypi.python.org/pyp
 
 ## Setup
 ### Python
-A *virtualenv* is already included with the source - therefore from the root directory of the repository simply run `. ./activate`. This loads the Python environment and will have all necessary dependencies installed.
+Set up a new *virtualenv* by following the getting started guide on [virtualenv](http://www.virtualenv.org/en/latest/) and then run `pip install -r requirements.txt`. This will install all requirements for the project.
 
 Then take some time to edit `config.py` and put in your AWS credentials and an API key from [ipinfodb](http://ipinfodb.com/ip_location_api.php).
 
