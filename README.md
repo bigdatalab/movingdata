@@ -51,4 +51,27 @@ All the commands should be executed from the `deploy` directory.
 A sample workflow, which was used for the IEEE Conference Paper, is included. It loads the workflow specification from plain-text files in the `ieee/inputs` directory. Every line of these files contains a separate node in the workflow. The data source is defined in `deploy/ieee_test_workflow.py`.
 
 ### Generating random workflows
-`python generator.py N` generates a random sequential workflow with N nodes (with replacement). It uses the nodes list in `eg/planetlab/nodes.txt` as a source. The workflow specification will be printed to *STDOUT*.
+`python generator.py N` generates a random sequential workflow with N nodes (with replacement). It uses the nodes list in `eg/planetlab/nodes.txt` as a source. The workflow specification will be printed to *STDOUT*. 
+
+For example, if a new workflow should be generated for the sample workflow, the following command could be used:
+
+    python generator.py 5 > ../ieee/inputs/wf1.txt
+
+### Running the preanalysis tool
+`python ieee_analyzer.py WF.txt` runs the workflow specified in `ieee/inputs/WF.txt`. All logs are displayed in *STDERR*. *STDOUT* is automatically redirected to `ieee/outputs/WF.txt_pre`. This file contains the output of the analysis tool.
+
+For example, if the workflow generated above should be analysed, the following command could be used:
+    
+    python ieee_analyzer.py wf1.txt
+
+The result table can then be found in `ieee/outputs/wf1.txt_pre`.
+
+### Executing the workflow
+`python ieee_runner.py WF.txt REGION1,REGION2,..` runs the workflow specified in `ieee/inputs/WF.txt` in AWS EC2 regions REGION1 and REGION2. Similarly to the analysis tool, logs are displayed in *STDERR* and *STDOUT* is redirected to `ieee/outputs/WF.txt_output`.
+
+For example, if the workflow generated above should be executed in the regions *us-east-1* and *us-west-2* and timed, the following command could be used:
+
+    python ieee_runner.py wf1.txt us-east-1,us-west-2
+
+The result table can then be found in `ieee/outputs/wf1.txt_output`.
+
