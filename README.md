@@ -32,7 +32,19 @@ Similarly, the command `python script/copy_security_groups.py` can be used to co
 ### PlanetLab
 The PlanetLab setup files live in `eg/planetlab`. 
 
-The file `nodes.txt` contains a list of PlanetLab nodes where the test web service workflows can be executed.
+The file `eg/planetlab/nodes.txt` contains a list of PlanetLab nodes where the test web service workflows can be executed. When the project was started, a command was used to retrieve this list of nodes from the PlanetLab [comon](http://comon.cs.princeton.edu) service. However, as of March 2013, this service does not respond to requests and thus the list of live nodes cannot be queried anymore. Since PlanetLab nodes tend to go offline, it might be possible that none of the nodes defined in `nodes.txt` work.
+
+The script file `eg/planetlab/pl.sh` is used to control the web services hosted on PlanetLab. 
+
+`sh eg/planetlab/pl.sh deploy` copies the file in `eg/planetlab/cs4098/server.py` to every node defined in `nodes.txt`.
+
+`sh eg/planetlab/pl.sh install` installs the Python dependencies on all nodes.
+
+`sh eg/planetlab/pl.sh start` starts the web service on every node (accessible via HTTP on port 31415).
+
+`sh eg/planetlab/pl.sh stop` stops the web service on every node.
+
+
 
 ### PlanetLab setup
 
