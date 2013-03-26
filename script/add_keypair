@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 
+# Copies specified keypair to all AWS regions
+#
+# Copyright (c) 2013 by Michael Luckeneder
+#
+
+keypair=cs4098 # or some name that is meaningful to you
+publickeyfile=$HOME/.ssh/cs4098_rsa.pub
+regions=$(ec2-describe-regions | cut -f2)
+
+for region in $regions; do
+  echo $region
+  ec2-import-keypair --region $region --public-key-file $publickeyfile $keypair
+done

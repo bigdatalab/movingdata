@@ -1,0 +1,6 @@
+cs-planetlab4.cs.surrey.sfu.ca
+planetlab-1.cmcl.cs.cmu.edu
+plab3.eece.ksu.edu
+planetlab-03.cs.princeton.edu
+planetlab4.williams.edu
+planetlab2.fri.uni-lj.si

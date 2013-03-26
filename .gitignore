@@ -1,5 +1,5 @@
 *.py[cod]
-
+.DS_Store
 # C extensions
 *.so
 
@@ -33,3 +33,6 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+activate
+cs4098/**/*
