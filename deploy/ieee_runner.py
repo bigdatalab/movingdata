@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# 
+#
 # Invokes the pre-deployment analysis for the IEEE workflow
 #
 # Copyright (c) 2013 by Michael Luckeneder
@@ -8,10 +8,6 @@
 from ieee_test_workflow import *
 from pre_deployer import PreDeployer
 import traceback
-from prettytable import PrettyTable
-from operator import itemgetter
-import pydot
-import itertools
 import sys
 from display_metrics import *
 
@@ -21,14 +17,13 @@ try:
     region = sys.argv[2].split(",")
 
     # initialize workflow
-    wf = IEEETestWorkflow("../ieee/inputs/%s"% (fname))
+    wf = IEEETestWorkflow("../ieee/inputs/%s" % (fname))
 
     # redirect STDOUT
-    sys.stdout = open("../ieee/outputs/%s_output"%(fname),"w")
+    sys.stdout = open("../ieee/outputs/%s_output" % (fname), "w")
 
     # initialize pre_deployer
     pre = PreDeployer(wf)
-    
 
     # run workflow
     wf_results = pre.run_workflow(region)
