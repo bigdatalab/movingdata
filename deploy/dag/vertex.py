@@ -1,4 +1,4 @@
-# 
+#
 # Represents a vertex in a DAG
 #
 # Copyright (c) 2013 by Michael Luckeneder

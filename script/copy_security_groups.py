@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# 
+#
 # Copies security groups to all AWS regions
 #
 # Copyright (c) 2013 by Michael Luckeneder

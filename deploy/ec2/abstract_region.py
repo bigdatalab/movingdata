@@ -1,4 +1,4 @@
-# 
+#
 # Represents an abstract EC2 region
 #
 # Copyright (c) 2013 by Michael Luckeneder
@@ -6,8 +6,9 @@
 
 from abc import ABCMeta, abstractmethod
 
+
 class AbstractRegion(object):
-    """Represents an abstract EC2 region - this can either be 
+    """Represents an abstract EC2 region - this can either be
     a single region or multiple regions"""
 
     __metaclass__ = ABCMeta

@@ -1,16 +1,19 @@
-# 
+#
 # Represents multiple EC2 regions
 #
 # Copyright (c) 2013 by Michael Luckeneder
 #
 
-
-import sys, multiprocessing, config
+import sys
+import multiprocessing
+import config
 from ec2_region import *
+
 
 def start_worker(i):
     """Starts an asynchronous worker"""
     i.start()
+
 
 class EC2MultiRegionConnection(object):
     """Manages instances in multiple EC2 regions"""
@@ -26,7 +29,7 @@ class EC2MultiRegionConnection(object):
 
         # define EC2 regions
         for region, ami in self.amis.iteritems():
-            self.regions[region] = EC2Region(region,ami)
+            self.regions[region] = EC2Region(region, ami)
 
     def start(self):
         """Launch instances in all regions"""
@@ -59,8 +62,7 @@ class EC2MultiRegionConnection(object):
         for r in self.regions.values():
             r.terminate_all()
 
-
-    def invoke_ssh(self,cmd,regions=[]):
+    def invoke_ssh(self, cmd, regions=[]):
         """Invoke SSH command in all or a subset of regions handled"""
         result = {}
 
@@ -71,16 +73,14 @@ class EC2MultiRegionConnection(object):
             regions = self.regions
 
         # invoke command on all or specified regions
-        for region,i in regions.iteritems():
+        for region, i in regions.iteritems():
             result[i.url()] = i.invoke_ssh(cmd=cmd)
 
         return result
-
-
 
     def upload_file(self, localfile, remotefile):
         """Uploads file to all instances using SCP"""
         regions = self.regions
 
-        for region,i in regions.iteritems():
-            i.upload_file(localfile,remotefile)
+        for region, i in regions.iteritems():
+            i.upload_file(localfile, remotefile)

@@ -1,4 +1,4 @@
-# 
+#
 # Prettifies metrics output
 #
 # Copyright (c) 2013 by Michael Luckeneder

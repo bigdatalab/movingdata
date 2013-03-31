@@ -1,4 +1,4 @@
-# 
+#
 # Represents a single EC2 region
 #
 # Copyright (c) 2013 by Michael Luckeneder
@@ -9,12 +9,11 @@ import boto
 import sys
 import time
 import itertools
-import json
-import urllib2
 import boto.ec2
 import config
 import paramiko
 from abstract_region import AbstractRegion
+
 
 class EC2Region(AbstractRegion):
     """Represents a single EC2 instance in a region"""
@@ -39,8 +38,7 @@ class EC2Region(AbstractRegion):
     def check_state(self):
         """Checks if instance is running"""
         self.instance.update()
-        return self.instance.state != u'running' 
-
+        return self.instance.state != u'running'
 
     def wait_for_running(self):
         """Wait until instance is running"""
@@ -50,7 +48,7 @@ class EC2Region(AbstractRegion):
             time.sleep(timeout)
             # exponential timeout
             timeout *= 2
-            print >> sys.stderr, "Timeout %i" %(timeout)
+            print >> sys.stderr, "Timeout %i" % (timeout)
             self.instance.update()
 
         return True
@@ -62,7 +60,6 @@ class EC2Region(AbstractRegion):
             self.dns = self.instance.public_dns_name
         return self.dns
 
-
     def start(self):
         """Starts the instance in the region"""
         if not self.instance:
@@ -70,10 +67,8 @@ class EC2Region(AbstractRegion):
                                                   security_groups=['cs4098'], user_data=config.UDAT)
             self.instance = reservation.instances[0]
 
-
         else:
             print >> sys.stderr, "Instance already running"
-
 
     def terminate(self):
         """Terminates the instance in the region"""
@@ -82,7 +77,6 @@ class EC2Region(AbstractRegion):
             self.url = ''
             self.instance.terminate()
             self.instance = None
-
 
     def terminate_all(self):
         """Terminates all instances in all regions"""
@@ -110,13 +104,11 @@ class EC2Region(AbstractRegion):
         else:
             return res
 
-
     def connect_ssh(self):
         """Connects via SSH to instance"""
         if not self.ssh_connected:
-            self.ssh.connect(self.url(), username='ubuntu', timeout = 20000)
+            self.ssh.connect(self.url(), username='ubuntu', timeout=20000)
             self.ssh_connected = True
-
 
     def connect_sftp(self):
         """Connects via SFTP to instance"""
@@ -124,7 +116,6 @@ class EC2Region(AbstractRegion):
         if not self.sftp_connected:
             self.sftp = self.ssh.open_sftp()
             self.sftp_connected = True
-
 
     def upload_file(self, localfile, remotefile):
         """Uploads file using SFTP to instance"""

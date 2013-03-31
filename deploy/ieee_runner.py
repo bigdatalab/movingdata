@@ -5,11 +5,11 @@
 # Copyright (c) 2013 by Michael Luckeneder
 #
 
-from ieee_test_workflow import *
+from ieee_test_workflow import IEEETestWorkflow
 from pre_deployer import PreDeployer
 import traceback
 import sys
-from display_metrics import *
+from display_metrics import display_metrics
 
 try:
     # load workflow specification filename and regions
