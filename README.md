@@ -75,3 +75,6 @@ For example, if the workflow generated above should be executed in the regions *
 
 The result table can then be found in `ieee/outputs/wf1.txt_output`.
 
+## Running unit tests
+Unit tests for the DAG implementation were written using the _testify_ framework. The tests can be invoked by simply running this command from the root directory:
+    testify tests
