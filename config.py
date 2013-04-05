@@ -1,8 +1,10 @@
 """Configuration options"""
 AWS_ACCESS_KEY = "<YOUR_AWS_ACCESS_KEY>"
 AWS_SECRET_KEY = "<YOUR_AWS_SECRET_KEY>"
-AMI_ID = "ami-dac679b3"
 IPINFODB_API_KEY = "<YOUR_INFODB_API_KEY>"
+
+# Don't change anything starting here
+AMI_ID = "ami-dac679b3"
 AMIS = {'ap-northeast-1':'ami-22ad1223', 
             'ap-southeast-1': 'ami-e88acaba', 
             'eu-west-1': 'ami-c1aaabb5', 
